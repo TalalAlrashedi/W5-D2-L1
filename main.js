@@ -5,6 +5,25 @@ let submitBtn = document.getElementById("submitBtn");
 let imagePost = document.getElementById("image-url");
 
 submitBtn.addEventListener("click", () => {
+  if (!username.value || !text.value || !imagePost.value) {
+    alert("قم بتعئة البيانات المطلوبة");
+    return;
+  }
+  if (text.value.length < 6) {
+    alert("العنوان يجب ان يكون اكثر من ٦ احرف");
+    return;
+  }
+
+  fetch("https://68219a1b259dad2655afc217.mockapi.io/api/post")
+    .then((response) => response.json())
+    .then((data) => {
+      let userIsExist = data.some((user) => user.username !== username.value);
+      if (userIsExist) {
+        alert("الاسم موجود ");
+        return;
+      }
+    });
+
   fetch("https://68219a1b259dad2655afc217.mockapi.io/api/post", {
     method: "POST",
     headers: {
@@ -16,8 +35,8 @@ submitBtn.addEventListener("click", () => {
       img: imagePost.value,
     }),
   }).then(() => {
-    ``
-    alert("تم انشاء بوست بنجاح")
+    ``;
+    alert("تم انشاء بوست بنجاح");
     location.reload();
   });
 });
@@ -44,7 +63,7 @@ fetch("https://68219a1b259dad2655afc217.mockapi.io/api/post")
             },
           }
         ).then(() => {
-          alert("تم حذف البوست")
+          alert("تم حذف البوست");
           postDiv.remove();
         });
       });
