@@ -16,6 +16,7 @@ submitBtn.addEventListener("click", () => {
       img: imagePost.value,
     }),
   }).then(() => {
+    ``
     alert("تم انشاء بوست بنجاح")
     location.reload();
   });
