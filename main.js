@@ -16,6 +16,7 @@ submitBtn.addEventListener("click", () => {
       img: imagePost.value,
     }),
   }).then(() => {
+    alert("تم انشاء بوست بنجاح")
     location.reload();
   });
 });
@@ -42,6 +43,7 @@ fetch("https://68219a1b259dad2655afc217.mockapi.io/api/post")
             },
           }
         ).then(() => {
+          alert("تم حذف البوست")
           postDiv.remove();
         });
       });
