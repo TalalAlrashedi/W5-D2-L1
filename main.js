@@ -49,7 +49,7 @@ fetch("https://68219a1b259dad2655afc217.mockapi.io/api/post")
       usernameDiv.innerText = element.username;
       textDiv.innerText = element.textarea;
       image.src = element.img;
-      //   image.style.width = "200px";
+
       deleteBtn.innerText = "Delete";
 
       postDiv.appendChild(usernameDiv);
